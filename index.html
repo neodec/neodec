@@ -6,6 +6,7 @@
   <title>NEODEC - Conseil en Data & BI</title>
   <link rel="stylesheet" href="style.css" />
   <script>
+    // Redirection automatique de neodec.fr vers www.neodec.fr
     if (location.hostname === 'neodec.fr') {
       location.replace('https://www.neodec.fr' + location.pathname + location.search + location.hash);
     }
@@ -15,7 +16,7 @@
 
   <header>
     <div class="logo">
-      <img src="logos/logo.png" alt="NEODEC">
+      <img src="logos/logo.png" alt="NEODEC" />
     </div>
     <nav>
       <button id="burger">&#9776;</button>
@@ -60,42 +61,49 @@
     <h2>Ils nous font confiance</h2>
     <div class="carousel-wrapper">
       <div class="carousel-track">
-        <img src="logos/business-france.png" alt="Business France">
-        <img src="logos/samsung.png" alt="Samsung">
-        <img src="logos/sfr.png" alt="SFR">
-        <img src="logos/iedom.png" alt="IEDOM">
-        <img src="logos/amf.png" alt="AMF">
-        <img src="logos/bnp-paribas.png" alt="BNP Paribas">
-        <img src="logos/natixis.png" alt="Natixis">
-        <img src="logos/bollore.png" alt="Bolloré Transport & Logistics">
-        <img src="logos/bnp-risk.png" alt="BNP Risk">
-        <!-- Duplicates for looping effect -->
-        <img src="logos/business-france.png" alt="Business France">
-        <img src="logos/samsung.png" alt="Samsung">
-        <img src="logos/sfr.png" alt="SFR">
-        <img src="logos/iedom.png" alt="IEDOM">
-        <img src="logos/amf.png" alt="AMF">
-        <img src="logos/bnp-paribas.png" alt="BNP Paribas">
-        <img src="logos/natixis.png" alt="Natixis">
-        <img src="logos/bollore.png" alt="Bolloré Transport & Logistics">
-        <img src="logos/bnp-risk.png" alt="BNP Risk">
+        <img src="logos/business-france.png" alt="Business France" />
+        <img src="logos/samsung.png" alt="Samsung" />
+        <img src="logos/sfr.png" alt="SFR" />
+        <img src="logos/iedom.png" alt="IEDOM" />
+        <img src="logos/amf.png" alt="AMF" />
+        <img src="logos/bnp-paribas.png" alt="BNP Paribas" />
+        <img src="logos/natixis.png" alt="Natixis" />
+        <img src="logos/bollore.png" alt="Bolloré Transport & Logistics" />
+        <img src="logos/bnp-risk.png" alt="BNP Risk" />
+        <!-- Duplication pour effet boucle -->
+        <img src="logos/business-france.png" alt="Business France" />
+        <img src="logos/samsung.png" alt="Samsung" />
+        <img src="logos/sfr.png" alt="SFR" />
+        <img src="logos/iedom.png" alt="IEDOM" />
+        <img src="logos/amf.png" alt="AMF" />
+        <img src="logos/bnp-paribas.png" alt="BNP Paribas" />
+        <img src="logos/natixis.png" alt="Natixis" />
+        <img src="logos/bollore.png" alt="Bolloré Transport & Logistics" />
+        <img src="logos/bnp-risk.png" alt="BNP Risk" />
       </div>
     </div>
   </section>
 
   <section id="contact">
     <h2>Contactez-nous</h2>
-    <form action="https://formspree.io/f/xnnzjnyd" method="POST">
-      <!-- Champ anti-spam invisible -->
-      <input type="text" name="_gotcha" style="display:none" />
-      
-      <input type="text" name="prenom" placeholder="Votre prénom" required />
-      <input type="email" name="email" placeholder="Votre adresse e-mail" required />
-      <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
+    <form id="contact-form" action="https://formspree.io/f/xnnzjnyd" method="POST" novalidate>
+      <!-- Honeypot anti-spam -->
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+      <label for="prenom">Prénom</label>
+      <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Votre email" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Votre message" rows="5" required></textarea>
+
       <button type="submit">Envoyer</button>
     </form>
-    <p id="confirmation" style="display:none; text-align:center; color:green; font-weight:bold; margin-top: 2em;">
-      ✅ Merci ! Votre message a bien été envoyé.
+
+    <p id="form-confirmation" style="display:none; color:green; margin-top:1em;">
+      Merci pour votre message, nous vous répondrons rapidement !
     </p>
   </section>
 
@@ -104,35 +112,43 @@
   </footer>
 
   <script>
-    // Burger menu
     document.getElementById("burger").addEventListener("click", function () {
       document.querySelector(".nav-list").classList.toggle("open");
     });
 
-    // Confirmation message
-    const form = document.querySelector("#contact form");
-    const confirmation = document.getElementById("confirmation");
+    const form = document.getElementById('contact-form');
+    const confirmation = document.getElementById('form-confirmation');
 
-    form.addEventListener("submit", function (e) {
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
-      const honeypot = form.querySelector('input[name="_gotcha"]').value;
-      if (honeypot) return;
 
-      const data = new FormData(form);
+      // Honeypot anti-spam
+      if (form._gotcha.value) return;
+
       fetch(form.action, {
-        method: "POST",
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
         if (response.ok) {
           form.reset();
-          confirmation.style.display = "block";
-          confirmation.scrollIntoView({ behavior: "smooth" });
+          confirmation.style.display = 'block';
+          confirmation.scrollIntoView({ behavior: 'smooth' });
         } else {
-          alert("Une erreur est survenue. Veuillez réessayer.");
+          response.json().then(data => {
+            if (data && data.error) {
+              alert(data.error);
+            } else {
+              alert('Une erreur est survenue. Veuillez réessayer.');
+            }
+          });
         }
-      }).catch(() => {
-        alert("Erreur réseau. Veuillez vérifier votre connexion.");
+      })
+      .catch(() => {
+        alert('Erreur réseau. Veuillez vérifier votre connexion.');
       });
     });
   </script>
