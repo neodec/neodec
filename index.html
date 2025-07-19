@@ -91,11 +91,11 @@
     <textarea name="Message" placeholder="Votre message" rows="5" required></textarea>
 
     <!-- Honeypot anti-spam -->
-    <input type="text" name="_gotcha" style="display:none" />
+    <input type="text" name="_gotcha" style="display:none" autocomplete="off" />
 
     <button type="submit">Envoyer</button>
   </form>
-  <p id="formMessage" style="color: green; display: none;"></p>
+  <p id="formMessage" style="color: #0a1f44; display: none;"></p>
 </section>
 
 <footer>
@@ -126,14 +126,16 @@
     .then(response => {
       if (response.ok) {
         formMessage.textContent = "Merci pour votre message, nous vous répondrons rapidement.";
-        formMessage.style.color = "green";
+        formMessage.style.color = "#0a1f44";
         formMessage.style.display = "block";
         form.reset();
       } else {
-        return response.json().then(data => {
-          formMessage.textContent = data.errors
-            ? data.errors.map(e => e.message).join(", ")
-            : "Une erreur est survenue lors de l'envoi.";
+        response.json().then(data => {
+          if (data && data.errors) {
+            formMessage.textContent = data.errors.map(e => e.message).join(", ");
+          } else {
+            formMessage.textContent = "Une erreur est survenue lors de l'envoi.";
+          }
           formMessage.style.color = "red";
           formMessage.style.display = "block";
         });
