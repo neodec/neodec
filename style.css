@@ -23,8 +23,8 @@ header {
 }
 
 .logo img {
-  height: 100px;
-  width: auto;
+  height: 70px !important;
+  width: auto !important;
 }
 
 nav {
