@@ -1,91 +1,195 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NeoDec - Conseil en data et décisionnel</title>
-  <link rel="stylesheet" href="style.css" />
-  <script>
-    if (window.location.hostname === "neodec.fr") {
-      window.location.href = "https://www.neodec.fr" + window.location.pathname;
-    }
-  </script>
-</head>
-<body>
-  <header>
-    <div class="container header-container">
-      <div class="logo">NeoDec</div>
-      <nav>
-        <ul class="nav-list">
-          <li><a href="#accueil">Accueil</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#apropos">À propos</a></li>
-          <li><a href="#references">Références</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <section id="accueil" class="hero">
-    <div class="container">
-      <h1>La data au service de vos décisions</h1>
-      <p>NeoDec vous accompagne dans la valorisation de vos données grâce à des solutions sur mesure.</p>
-    </div>
-  </section>
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
 
-  <section id="services">
-    <div class="container">
-      <h2>Nos services</h2>
-      <div class="services-container">
-        <div class="service">
-          <h3>Conseil stratégique</h3>
-          <p>Accompagnement dans la gouvernance et la stratégie data de votre entreprise.</p>
-        </div>
-        <div class="service">
-          <h3>Business Intelligence</h3>
-          <p>Création de dashboards clairs, pertinents et interactifs pour piloter votre activité.</p>
-        </div>
-        <div class="service">
-          <h3>Formation & Coaching</h3>
-          <p>Montée en compétence de vos équipes sur les outils BI et les méthodes agiles.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+header {
+  background: #111;
+  color: #fff;
+  padding: 1em 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
-  <section id="apropos">
-    <div class="container">
-      <h2>À propos de NeoDec</h2>
-      <p>NeoDec est une entreprise de conseil spécialisée dans la transformation data. Nous combinons expertise technique et compréhension métier pour accélérer vos projets décisionnels.</p>
-    </div>
-  </section>
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
 
-  <section id="references" class="references">
-    <div class="container">
-      <h2>Ils nous font confiance</h2>
-      <div class="logos">
-        <p>Business France · Samsung · AMF · IEDOM · SFR · BNP Paribas · Bolloré Transport & Logistique · Natixis · BNP RISK</p>
-      </div>
-    </div>
-  </section>
+nav {
+  position: relative;
+}
 
-  <section id="contact">
-    <div class="container">
-      <h2>Contactez-nous</h2>
-      <form action="contact.php" method="POST">
-        <input type="text" name="nom" placeholder="Votre nom" required />
-        <input type="email" name="email" placeholder="Votre email" required />
-        <textarea name="message" placeholder="Votre message" required></textarea>
-        <button type="submit">Envoyer</button>
-      </form>
-    </div>
-  </section>
-  
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 NeoDec. Tous droits réservés.</p>
-    </div>
-  </footer>
-</body>
-</html>
+#burger {
+  background: none;
+  border: none;
+  font-size: 2em;
+  color: #fff;
+  display: none;
+  cursor: pointer;
+}
+
+.nav-list {
+  display: flex;
+  gap: 1.5em;
+  list-style: none;
+}
+
+.nav-list a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-list a:hover {
+  color: #00c0ff;
+}
+
+.hero {
+  padding: 5em 2em;
+  text-align: center;
+  background: linear-gradient(120deg, #003049, #005f73);
+  color: white;
+}
+
+.hero h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+
+#services, #apropos, #references, #contact {
+  padding: 3em 2em;
+  background: #fff;
+}
+
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  justify-content: center;
+}
+
+.service {
+  background: #f0f0f0;
+  padding: 1.5em;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#apropos {
+  background: #e0f7fa;
+  text-align: center;
+}
+
+.references {
+  background: #f5f5f5;
+  text-align: center;
+}
+
+.references h2 {
+  font-size: 1.8em;
+  margin-bottom: 1em;
+  color: #003049;
+}
+
+.references .logos {
+  font-size: 1.1em;
+  line-height: 1.8;
+}
+
+form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+input, textarea {
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+button {
+  padding: 1em;
+  background: #003049;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #005f73;
+}
+
+footer {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 1em;
+  margin-top: 2em;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  #burger {
+    display: block;
+  }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    background: #111;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding: 1em;
+    width: 200px;
+  }
+
+  .nav-list.open {
+    display: flex;
+  }
+
+  .services-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service {
+    width: 100%;
+    max-width: 90%;
+  }
+
+  .hero h1 {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.5em;
+  }
+
+  .logo {
+    font-size: 1.2em;
+  }
+
+  .nav-list a {
+    font-size: 1em;
+  }
+}
