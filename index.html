@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nova Dec - Conseil en data & décisionnel</title>
+  <title>NeoDec - Conseil en data & décisionnel</title>
   <link rel="stylesheet" href="style.css" />
-
-  <!-- 🔁 Redirection de neodec.fr vers www.neodec.fr -->
   <script>
     if (location.hostname === "neodec.fr") {
       location.href = "https://www.neodec.fr" + location.pathname + location.search + location.hash;
@@ -16,7 +14,7 @@
 <body>
   <header>
     <div class="logo">
-      <img src="logos/logo.png" alt="Nova Dec" style="height: 40px;" />
+      <img src="logos/logo.png" alt="NeoDec" style="height: 40px;" />
     </div>
     <nav>
       <button id="burger">&#9776;</button>
@@ -31,7 +29,7 @@
 
   <section class="hero">
     <h1>Accélérez vos décisions grâce à la data</h1>
-    <p>Nova Dec vous accompagne dans vos projets BI, data visualisation et pilotage stratégique.</p>
+    <p>NeoDec vous accompagne dans vos projets BI, data visualisation et pilotage stratégique.</p>
   </section>
 
   <section id="services">
@@ -53,22 +51,34 @@
   </section>
 
   <section id="apropos">
-    <h2>À propos de Nova Dec</h2>
-    <p>Nova Dec est une société de conseil spécialisée dans la valorisation des données pour aider les entreprises à prendre des décisions éclairées.</p>
+    <h2>À propos de NeoDec</h2>
+    <p>NeoDec est une société de conseil spécialisée dans la valorisation des données pour aider les entreprises à prendre des décisions éclairées.</p>
   </section>
 
   <section id="references" class="references">
     <h2>Ils nous font confiance</h2>
-    <div class="carousel">
-      <img src="logos/business-france.png" alt="Business France" />
-      <img src="logos/samsung.png" alt="Samsung" />
-      <img src="logos/sfr.png" alt="SFR" />
-      <img src="logos/iedom.png" alt="IEDOM" />
-      <img src="logos/amf.png" alt="AMF" />
-      <img src="logos/bnp-paribas.png" alt="BNP Paribas" />
-      <img src="logos/natixis.png" alt="Natixis" />
-      <img src="logos/bollore.png" alt="Bolloré Transport & Logistics" />
-      <img src="logos/bnp-risk.png" alt="BNP Risk" />
+    <div class="carousel-wrapper">
+      <div class="carousel-track">
+        <img src="logos/business-france.png" alt="Business France" />
+        <img src="logos/samsung.png" alt="Samsung" />
+        <img src="logos/sfr.png" alt="SFR" />
+        <img src="logos/iedom.png" alt="IEDOM" />
+        <img src="logos/amf.png" alt="AMF" />
+        <img src="logos/bnp-paribas.png" alt="BNP Paribas" />
+        <img src="logos/natixis.png" alt="Natixis" />
+        <img src="logos/bollore.png" alt="Bolloré Transport & Logistics" />
+        <img src="logos/bnp-risk.png" alt="BNP Risk" />
+        <!-- duplication pour animation continue -->
+        <img src="logos/business-france.png" alt="Business France" />
+        <img src="logos/samsung.png" alt="Samsung" />
+        <img src="logos/sfr.png" alt="SFR" />
+        <img src="logos/iedom.png" alt="IEDOM" />
+        <img src="logos/amf.png" alt="AMF" />
+        <img src="logos/bnp-paribas.png" alt="BNP Paribas" />
+        <img src="logos/natixis.png" alt="Natixis" />
+        <img src="logos/bollore.png" alt="Bolloré Transport & Logistics" />
+        <img src="logos/bnp-risk.png" alt="BNP Risk" />
+      </div>
     </div>
   </section>
 
@@ -83,7 +93,7 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 Nova Dec. Tous droits réservés.</p>
+    <p>&copy; 2025 NeoDec. Tous droits réservés.</p>
   </footer>
 
   <script>
