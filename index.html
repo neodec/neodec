@@ -10,16 +10,80 @@
       location.replace('https://www.neodec.fr' + location.pathname + location.search + location.hash);
     }
   </script>
-  <!-- Intégration reCAPTCHA v3 -->
+  <!-- reCAPTCHA v3 -->
   <script src="https://www.google.com/recaptcha/api.js?render=6Lc524grAAAAAE3kuVMeyXsRo706ZFqtjULe3JcR"></script>
 </head>
 <body>
 
 <header>
-  <!-- Ton header ici -->
+  <div class="logo">
+    <img src="logos/logo.png" alt="NEODEC" style="height:80px;" />
+  </div>
+  <nav>
+    <button id="burger">&#9776;</button>
+    <ul class="nav-list">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#references">Références</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 </header>
 
-<!-- Tes autres sections ici -->
+<section class="hero">
+  <h1>NEODEC – Conseil en Data & Business Intelligence</h1>
+  <p>Transformez vos données en décisions avec impact.</p>
+</section>
+
+<section id="services">
+  <h2>Nos Services</h2>
+  <div class="services-container">
+    <div class="service">
+      <h3>Analyse de données</h3>
+      <p>Exploitez la puissance de vos données pour orienter vos décisions stratégiques.</p>
+    </div>
+    <div class="service">
+      <h3>Reporting & Visualisation</h3>
+      <p>Des tableaux de bord interactifs et percutants pour une visibilité optimale.</p>
+    </div>
+    <div class="service">
+      <h3>Gestion agile & accompagnement</h3>
+      <p>Des projets menés en mode agile pour maximiser la valeur métier rapidement.</p>
+    </div>
+  </div>
+</section>
+
+<section id="apropos">
+  <h2>À propos de NEODEC</h2>
+  <p>NEODEC est une société de conseil spécialisée en data, BI et pilotage décisionnel. Nous accompagnons nos clients dans la transformation de leur stratégie grâce à l'intelligence des données.</p>
+</section>
+
+<section id="references" class="references">
+  <h2>Ils nous font confiance</h2>
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
+      <img src="logos/business-france.png" alt="Business France" />
+      <img src="logos/samsung.png" alt="Samsung" />
+      <img src="logos/sfr.png" alt="SFR" />
+      <img src="logos/iedom.png" alt="IEDOM" />
+      <img src="logos/amf.png" alt="AMF" />
+      <img src="logos/bnp-paribas.png" alt="BNP Paribas" />
+      <img src="logos/natixis.png" alt="Natixis" />
+      <img src="logos/bollore.png" alt="Bolloré Transport & Logistics" />
+      <img src="logos/bnp-risk.png" alt="BNP Risk" />
+      <!-- duplication pour boucle -->
+      <img src="logos/business-france.png" alt="Business France" />
+      <img src="logos/samsung.png" alt="Samsung" />
+      <img src="logos/sfr.png" alt="SFR" />
+      <img src="logos/iedom.png" alt="IEDOM" />
+      <img src="logos/amf.png" alt="AMF" />
+      <img src="logos/bnp-paribas.png" alt="BNP Paribas" />
+      <img src="logos/natixis.png" alt="Natixis" />
+      <img src="logos/bollore.png" alt="Bolloré Transport & Logistics" />
+      <img src="logos/bnp-risk.png" alt="BNP Risk" />
+    </div>
+  </div>
+</section>
 
 <section id="contact">
   <h2>Contactez-nous</h2>
@@ -28,37 +92,37 @@
     <input type="email" name="Email" placeholder="Votre email" required />
     <textarea name="Message" placeholder="Votre message" rows="5" required></textarea>
 
-    <!-- Honeypot anti-spam : champ caché -->
+    <!-- Honeypot anti-spam -->
     <input type="text" name="_gotcha" style="display:none" />
 
     <button type="submit">Envoyer</button>
   </form>
-  <p id="formMessage" style="color: green; display:none;"></p>
+  <p id="formMessage" style="color: green; display: none;"></p>
 </section>
 
 <footer>
-  <!-- Ton footer ici -->
+  <p>&copy; 2025 NEODEC. Tous droits réservés.</p>
 </footer>
 
 <script>
+  document.getElementById("burger").addEventListener("click", function () {
+    document.querySelector(".nav-list").classList.toggle("open");
+  });
+
   const form = document.getElementById('contactForm');
   const formMessage = document.getElementById('formMessage');
 
   form.addEventListener('submit', function(event) {
     event.preventDefault();
 
-    // Si honeypot rempli => spam, stop
-    if (form._gotcha.value) {
-      return;
-    }
+    // Honeypot spam check
+    if (form._gotcha.value) return;
 
     grecaptcha.ready(function() {
       grecaptcha.execute('6Lc524grAAAAAE3kuVMeyXsRo706ZFqtjULe3JcR', {action: 'submit'}).then(function(token) {
-        // Ajoute le token reCAPTCHA au formulaire avant envoi
         const formData = new FormData(form);
         formData.append('g-recaptcha-response', token);
 
-        // Envoie via fetch en POST
         fetch('https://formspree.io/f/xnnzjnyd', {
           method: 'POST',
           headers: { 'Accept': 'application/json' },
@@ -73,7 +137,7 @@
           } else {
             response.json().then(data => {
               if (data && data.errors) {
-                formMessage.textContent = data.errors.map(error => error.message).join(", ");
+                formMessage.textContent = data.errors.map(e => e.message).join(", ");
               } else {
                 formMessage.textContent = "Une erreur est survenue lors de l'envoi.";
               }
