@@ -10,8 +10,6 @@
       location.replace('https://www.neodec.fr' + location.pathname + location.search + location.hash);
     }
   </script>
-  <!-- reCAPTCHA v3 -->
-  <script src="https://www.google.com/recaptcha/api.js?render=6Lc524grAAAAAE3kuVMeyXsRo706ZFqtjULe3JcR"></script>
 </head>
 <body>
 
@@ -118,40 +116,33 @@
     // Honeypot spam check
     if (form._gotcha.value) return;
 
-    grecaptcha.ready(function() {
-      grecaptcha.execute('6Lc524grAAAAAE3kuVMeyXsRo706ZFqtjULe3JcR', {action: 'submit'}).then(function(token) {
-        const formData = new FormData(form);
-        formData.append('g-recaptcha-response', token);
+    const formData = new FormData(form);
 
-        fetch('https://formspree.io/f/xrblebne', {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: formData
-        })
-        .then(response => {
-          if (response.ok) {
-            formMessage.textContent = "Merci pour votre message, nous vous répondrons rapidement.";
-            formMessage.style.color = "green";
-            formMessage.style.display = "block";
-            form.reset();
-          } else {
-            response.json().then(data => {
-              if (data && data.errors) {
-                formMessage.textContent = data.errors.map(e => e.message).join(", ");
-              } else {
-                formMessage.textContent = "Une erreur est survenue lors de l'envoi.";
-              }
-              formMessage.style.color = "red";
-              formMessage.style.display = "block";
-            });
-          }
-        })
-        .catch(() => {
-          formMessage.textContent = "Une erreur réseau est survenue.";
+    fetch('https://formspree.io/f/xrblebne', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: formData
+    })
+    .then(response => {
+      if (response.ok) {
+        formMessage.textContent = "Merci pour votre message, nous vous répondrons rapidement.";
+        formMessage.style.color = "green";
+        formMessage.style.display = "block";
+        form.reset();
+      } else {
+        return response.json().then(data => {
+          formMessage.textContent = data.errors
+            ? data.errors.map(e => e.message).join(", ")
+            : "Une erreur est survenue lors de l'envoi.";
           formMessage.style.color = "red";
           formMessage.style.display = "block";
         });
-      });
+      }
+    })
+    .catch(() => {
+      formMessage.textContent = "Une erreur réseau est survenue.";
+      formMessage.style.color = "red";
+      formMessage.style.display = "block";
     });
   });
 </script>
