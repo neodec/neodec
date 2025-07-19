@@ -15,7 +15,8 @@
 
 <header>
   <div class="logo">
-    <img src="logos/logo.png" alt="NEODEC" style="height:80px;" />
+    <img src="logos/logo.png" alt="NEODEC" />
+    <span class="logo-text">NEODEC – Conseil en Data & Business Intelligence</span>
   </div>
   <nav>
     <button id="burger">&#9776;</button>
@@ -29,7 +30,7 @@
 </header>
 
 <section class="hero">
-  <h3>NEODEC – Conseil en Data & Business Intelligence</h3>
+  <h1>NEODEC – Conseil en Data & Business Intelligence</h1>
   <p>Transformez vos données en décisions avec impact.</p>
 </section>
 
@@ -95,7 +96,7 @@
 
     <button type="submit">Envoyer</button>
   </form>
-  <p id="formMessage" style="color: #0a1f44; display: none;"></p>
+  <p id="formMessage" style="display: none;"></p>
 </section>
 
 <footer>
@@ -113,20 +114,18 @@
   form.addEventListener('submit', function(event) {
     event.preventDefault();
 
-    // Honeypot spam check
     if (form._gotcha.value) return;
 
-    const formData = new FormData(form);
-
+    // Ici tu peux gérer l'envoi du formulaire sans captcha (ou l'ajouter côté serveur)
     fetch('https://formspree.io/f/xnnzjnyd', {
       method: 'POST',
       headers: { 'Accept': 'application/json' },
-      body: formData
+      body: new FormData(form)
     })
     .then(response => {
       if (response.ok) {
         formMessage.textContent = "Merci pour votre message, nous vous répondrons rapidement.";
-        formMessage.style.color = "#0a1f44"; // bleu entête
+        formMessage.style.color = "#1a73e8"; // bleu logo
         formMessage.style.display = "block";
         form.reset();
       } else {
@@ -136,18 +135,114 @@
           } else {
             formMessage.textContent = "Une erreur est survenue lors de l'envoi.";
           }
-          formMessage.style.color = "red";
+          formMessage.style.color = "#e53e3e"; // rouge erreur
           formMessage.style.display = "block";
         });
       }
     })
     .catch(() => {
       formMessage.textContent = "Une erreur réseau est survenue.";
-      formMessage.style.color = "red";
+      formMessage.style.color = "#e53e3e";
       formMessage.style.display = "block";
     });
   });
 </script>
 
-</body>
-</html>
+<style>
+  /* Reset */
+  * {
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #0a1f44;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .logo img {
+    height: 60px;
+    object-fit: contain;
+  }
+
+  .logo-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+    max-width: 320px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  nav {
+    position: relative;
+  }
+
+  #burger {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  .nav-list {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+
+  .nav-list li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .nav-list li a:hover {
+    color: #1a73e8;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, #1a73e8, #0a1f44);
+    color: white;
+    padding: 100px 20px 60px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  section {
+    padding: 60px 
