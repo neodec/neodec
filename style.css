@@ -5,10 +5,11 @@
   padding: 0;
 }
 
+/* POLICE & COULEURS GÉNÉRALES */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #ffffff; /* fond clair principal */
-  color: #003049; /* bleu profond pour texte principal */
+  background: #ffffff; /* fond principal */
+  color: #003049; /* bleu profond pour le texte */
   line-height: 1.6;
 }
 
@@ -25,11 +26,28 @@ header {
   z-index: 1000;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
 .logo img {
-  height: 80px;
+  height: 60px;
   object-fit: contain;
 }
 
+.logo-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+  max-width: 320px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* NAVIGATION */
 nav {
   position: relative;
 }
@@ -57,12 +75,12 @@ nav {
 }
 
 .nav-list li a:hover {
-  color: #00c0ff; /* cyan au survol */
+  color: #00c0ff; /* cyan */
 }
 
 /* HERO */
 .hero {
-  background: linear-gradient(135deg, #00c0ff, #003049); /* cyan → bleu profond */
+  background: linear-gradient(135deg, #00c0ff, #003049);
   color: white;
   padding: 100px 20px 60px;
   text-align: center;
@@ -72,14 +90,13 @@ nav {
   font-size: 2.2rem;
   margin-bottom: 20px;
   font-weight: 700;
-  color: #ffffff;
 }
 
 .hero p {
   font-size: 1.3rem;
   max-width: 600px;
   margin: 0 auto;
-  color: #bcefff; /* cyan très clair */
+  color: #e0f7ff; /* cyan pâle */
 }
 
 /* SECTIONS */
@@ -108,7 +125,7 @@ h2 {
   background: #ffffff;
   padding: 25px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgb(0 48 73 / 0.15);
+  box-shadow: 0 4px 8px rgba(0, 48, 73, 0.15);
   flex: 1 1 280px;
   max-width: 320px;
   text-align: center;
@@ -116,7 +133,7 @@ h2 {
 }
 
 .service:hover {
-  box-shadow: 0 8px 20px rgba(0, 192, 255, 0.4); /* ombre cyan */
+  box-shadow: 0 8px 20px rgba(0, 192, 255, 0.4);
 }
 
 .service h3 {
@@ -184,19 +201,18 @@ h2 {
 #contact textarea {
   padding: 12px 15px;
   font-size: 1rem;
-  border: 2px solid #e0f7ff; /* bordure douce cyan pâle */
+  border: 2px solid #e0f7ff;
   border-radius: 6px;
   transition: border-color 0.3s ease;
   color: #003049;
   background-color: #f8faff;
 }
 
-#contact input[type="text"]:focus,
-#contact input[type="email"]:focus,
+#contact input:focus,
 #contact textarea:focus {
   border-color: #00c0ff;
-  outline: none;
   background-color: #ffffff;
+  outline: none;
 }
 
 #contact button {
@@ -223,8 +239,21 @@ h2 {
   color: #003049;
 }
 
-/* RESPONSIVE */
+/* FOOTER */
+footer {
+  background-color: #003049;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVE - MENU BURGER */
 @media (max-width: 768px) {
+  #burger {
+    display: block;
+  }
+
   .nav-list {
     display: none;
     flex-direction: column;
@@ -234,14 +263,12 @@ h2 {
     top: 60px;
     width: 200px;
     border-radius: 0 0 0 8px;
+    padding: 20px;
+    z-index: 999;
   }
 
   .nav-list.open {
     display: flex;
-  }
-
-  #burger {
-    display: block;
   }
 
   .services-container {
