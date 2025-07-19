@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NEODEC - Conseil en Data & BI</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script>
     if (location.hostname === 'neodec.fr') {
       location.replace('https://www.neodec.fr' + location.pathname + location.search + location.hash);
@@ -60,36 +61,30 @@
     <h2>Ils nous font confiance</h2>
     <div class="carousel-wrapper">
       <div class="carousel-track">
-        <img src="logos/business-france.png" alt="Business France" />
-        <img src="logos/samsung.png" alt="Samsung" />
-        <img src="logos/sfr.png" alt="SFR" />
-        <img src="logos/iedom.png" alt="IEDOM" />
-        <img src="logos/amf.png" alt="AMF" />
-        <img src="logos/bnp-paribas.png" alt="BNP Paribas" />
-        <img src="logos/natixis.png" alt="Natixis" />
-        <img src="logos/bollore.png" alt="Bolloré Transport & Logistics" />
-        <img src="logos/bnp-risk.png" alt="BNP Risk" />
-        <!-- Duplicate logos for infinite carousel effect -->
-        <img src="logos/business-france.png" alt="Business France" />
-        <img src="logos/samsung.png" alt="Samsung" />
-        <img src="logos/sfr.png" alt="SFR" />
-        <img src="logos/iedom.png" alt="IEDOM" />
-        <img src="logos/amf.png" alt="AMF" />
-        <img src="logos/bnp-paribas.png" alt="BNP Paribas" />
-        <img src="logos/natixis.png" alt="Natixis" />
-        <img src="logos/bollore.png" alt="Bolloré Transport & Logistics" />
-        <img src="logos/bnp-risk.png" alt="BNP Risk" />
+        <!-- Logos ici... -->
       </div>
     </div>
   </section>
 
   <section id="contact">
     <h2>Contactez-nous</h2>
-    <form action="https://formspree.io/f/xrblebne" method="POST">
-      <input type="text" name="prenom" placeholder="Votre prénom" required />
-      <input type="email" name="email" placeholder="Votre email" required />
-      <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
-      <button type="submit">Envoyer</button>
+    <form id="contact-form" action="https://formspree.io/f/xnnzjnyd" method="POST">
+      <input type="text" name="Nom" placeholder="Votre nom" required />
+      <input type="email" name="Email" placeholder="Votre email" required />
+      <textarea name="Message" placeholder="Votre message" rows="5" required></textarea>
+
+      <!-- Honeypot anti-spam caché -->
+      <input type="text" name="_gotcha" style="display:none" />
+
+      <!-- reCAPTCHA invisible -->
+      <button
+        class="g-recaptcha"
+        data-sitekey="6Lc524grAAAAAE3kuVMeyXsRo706ZFqtjULe3JcR"
+        data-callback="onSubmit"
+        data-action="submit"
+      >
+        Envoyer
+      </button>
     </form>
   </section>
 
@@ -101,6 +96,11 @@
     document.getElementById("burger").addEventListener("click", function () {
       document.querySelector(".nav-list").classList.toggle("open");
     });
+
+    // Callback appelé par reCAPTCHA après validation
+    function onSubmit(token) {
+      document.getElementById("contact-form").submit();
+    }
   </script>
 
 </body>
