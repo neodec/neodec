@@ -2,15 +2,227 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NEODEC - Conseil en Data & BI</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script>
     if (location.hostname === 'neodec.fr') {
       location.replace('https://www.neodec.fr' + location.pathname + location.search + location.hash);
     }
   </script>
+  <style>
+    /* --- Styles généraux --- */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: #111;
+      color: #fff;
+      padding: 1em 2em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo img {
+      height: 50px;
+      object-fit: contain;
+    }
+    nav {
+      position: relative;
+    }
+    #burger {
+      background: none;
+      border: none;
+      font-size: 2em;
+      color: #fff;
+      display: none;
+      cursor: pointer;
+    }
+    .nav-list {
+      display: flex;
+      gap: 1.5em;
+      list-style: none;
+    }
+    .nav-list a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav-list a:hover {
+      color: #00c0ff;
+    }
+    .hero {
+      padding: 5em 2em;
+      text-align: center;
+      background: linear-gradient(120deg, #003049, #005f73);
+      color: white;
+    }
+    .hero h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+    }
+    #services, #apropos, #references, #contact {
+      padding: 3em 2em;
+      background: #fff;
+    }
+    #services h2, #apropos h2, #references h2, #contact h2 {
+      text-align: center;
+      margin-bottom: 1em;
+      color: #003049;
+    }
+    .services-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+      justify-content: center;
+    }
+    .service {
+      background: #f0f0f0;
+      padding: 1.5em;
+      border-radius: 8px;
+      width: 300px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    #apropos {
+      background: #e0f7fa;
+      text-align: center;
+      font-size: 1.1em;
+    }
+    .references {
+      background: #f5f5f5;
+      text-align: center;
+    }
+    .carousel-wrapper {
+      overflow: hidden;
+      max-width: 900px;
+      margin: auto;
+      position: relative;
+      padding: 1em 0;
+    }
+    .carousel-track {
+      display: flex;
+      animation: scroll 30s linear infinite;
+      gap: 2em;
+      align-items: center;
+    }
+    .carousel-track img {
+      height: 60px;
+      object-fit: contain;
+      filter: grayscale(40%);
+      transition: filter 0.3s;
+    }
+    .carousel-track img:hover {
+      filter: none;
+    }
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+    /* Contact */
+    form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+    input, textarea {
+      padding: 1em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 1em;
+      transition: border-color 0.3s;
+    }
+    input:focus, textarea:focus {
+      border-color: #005f73;
+      outline: none;
+    }
+    button {
+      padding: 1em;
+      background: #003049;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1.1em;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    button:hover {
+      background: #005f73;
+      box-shadow: 0 4px 10px rgba(0, 95, 115, 0.5);
+    }
+    #form-message {
+      text-align: center;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      margin-top: 1em;
+    }
+    #form-message.visible {
+      opacity: 1;
+    }
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      margin-top: 2em;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      #burger {
+        display: block;
+      }
+      .nav-list {
+        display: none;
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        padding: 1em;
+        width: 200px;
+        z-index: 100;
+      }
+      .nav-list.open {
+        display: flex;
+      }
+      .services-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .service {
+        width: 100%;
+        max-width: 90%;
+      }
+      .hero h1 {
+        font-size: 2em;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.5em;
+      }
+      .logo img {
+        height: 40px;
+      }
+      .nav-list a {
+        font-size: 1em;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -61,19 +273,37 @@
     <h2>Ils nous font confiance</h2>
     <div class="carousel-wrapper">
       <div class="carousel-track">
-        <!-- Logos ici... -->
+        <img src="logos/business-france.png" alt="Business France" />
+        <img src="logos/samsung.png" alt="Samsung" />
+        <img src="logos/sfr.png" alt="SFR" />
+        <img src="logos/iedom.png" alt="IEDOM" />
+        <img src="logos/amf.png" alt="AMF" />
+        <img src="logos/bnp-paribas.png" alt="BNP Paribas" />
+        <img src="logos/natixis.png" alt="Natixis" />
+        <img src="logos/bollore.png" alt="Bolloré Transport & Logistics" />
+        <img src="logos/bnp-risk.png" alt="BNP Risk" />
+        <!-- Duplication pour effet boucle -->
+        <img src="logos/business-france.png" alt="Business France" />
+        <img src="logos/samsung.png" alt="Samsung" />
+        <img src="logos/sfr.png" alt="SFR" />
+        <img src="logos/iedom.png" alt="IEDOM" />
+        <img src="logos/amf.png" alt="AMF" />
+        <img src="logos/bnp-paribas.png" alt="BNP Paribas" />
+        <img src="logos/natixis.png" alt="Natixis" />
+        <img src="logos/bollore.png" alt="Bolloré Transport & Logistics" />
+        <img src="logos/bnp-risk.png" alt="BNP Risk" />
       </div>
     </div>
   </section>
 
   <section id="contact">
     <h2>Contactez-nous</h2>
-    <form id="contact-form" action="https://formspree.io/f/xnnzjnyd" method="POST">
+    <form id="contact-form">
       <input type="text" name="Nom" placeholder="Votre nom" required />
       <input type="email" name="Email" placeholder="Votre email" required />
       <textarea name="Message" placeholder="Votre message" rows="5" required></textarea>
 
-      <!-- Honeypot anti-spam caché -->
+      <!-- Honeypot -->
       <input type="text" name="_gotcha" style="display:none" />
 
       <!-- reCAPTCHA invisible -->
@@ -85,23 +315,3 @@
       >
         Envoyer
       </button>
-    </form>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 NEODEC. Tous droits réservés.</p>
-  </footer>
-
-  <script>
-    document.getElementById("burger").addEventListener("click", function () {
-      document.querySelector(".nav-list").classList.toggle("open");
-    });
-
-    // Callback appelé par reCAPTCHA après validation
-    function onSubmit(token) {
-      document.getElementById("contact-form").submit();
-    }
-  </script>
-
-</body>
-</html>
