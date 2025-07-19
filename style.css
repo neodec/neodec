@@ -1,3 +1,4 @@
+/* RESET */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,17 +7,18 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f0f2f5; /* très clair, neutre */
-  color: #222b45; /* gris très foncé bleuté */
+  background: #ffffff; /* fond clair principal */
+  color: #003049; /* bleu profond pour texte principal */
   line-height: 1.6;
 }
 
+/* HEADER */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background-color: #0a1f44; /* bleu marine foncé */
+  background-color: #003049; /* bleu profond */
   color: #ffffff;
   position: sticky;
   top: 0;
@@ -55,11 +57,12 @@ nav {
 }
 
 .nav-list li a:hover {
-  color: #3a85ff; /* bleu clair vif */
+  color: #00c0ff; /* cyan au survol */
 }
 
+/* HERO */
 .hero {
-  background: linear-gradient(135deg, #0a1f44, #144a82);
+  background: linear-gradient(135deg, #00c0ff, #003049); /* cyan → bleu profond */
   color: white;
   padding: 100px 20px 60px;
   text-align: center;
@@ -76,9 +79,10 @@ nav {
   font-size: 1.3rem;
   max-width: 600px;
   margin: 0 auto;
-  color: #d0d9ff; /* bleu très clair */
+  color: #bcefff; /* cyan très clair */
 }
 
+/* SECTIONS */
 section {
   padding: 60px 20px;
   max-width: 1100px;
@@ -89,9 +93,10 @@ h2 {
   font-size: 2rem;
   margin-bottom: 30px;
   text-align: center;
-  color: #0a1f44; /* bleu marine */
+  color: #003049;
 }
 
+/* SERVICES */
 .services-container {
   display: flex;
   gap: 20px;
@@ -103,7 +108,7 @@ h2 {
   background: #ffffff;
   padding: 25px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgb(10 31 68 / 0.15); /* ombre bleu */
+  box-shadow: 0 4px 8px rgb(0 48 73 / 0.15);
   flex: 1 1 280px;
   max-width: 320px;
   text-align: center;
@@ -111,16 +116,17 @@ h2 {
 }
 
 .service:hover {
-  box-shadow: 0 8px 20px rgb(58 133 255 / 0.4);
+  box-shadow: 0 8px 20px rgba(0, 192, 255, 0.4); /* ombre cyan */
 }
 
 .service h3 {
   margin-bottom: 15px;
-  color: #144a82; /* bleu moyen */
+  color: #003049;
 }
 
+/* RÉFÉRENCES */
 .references {
-  background: #e8efff; /* très léger bleu */
+  background: #f5f5f5;
   padding-bottom: 50px;
 }
 
@@ -150,7 +156,7 @@ h2 {
   cursor: pointer;
 }
 
-/* Animation du carousel horizontal */
+/* ANIMATION CAROUSEL */
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -160,15 +166,14 @@ h2 {
   }
 }
 
-/* Formulaire */
-
+/* FORMULAIRE */
 #contact form {
   background: #ffffff;
   padding: 30px 25px;
   max-width: 600px;
   margin: 0 auto;
   border-radius: 8px;
-  box-shadow: 0 6px 16px rgb(10 31 68 / 0.15);
+  box-shadow: 0 6px 16px rgba(0, 48, 73, 0.15);
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -179,23 +184,23 @@ h2 {
 #contact textarea {
   padding: 12px 15px;
   font-size: 1rem;
-  border: 2px solid #cbd6f2; /* bleu clair/gris */
+  border: 2px solid #e0f7ff; /* bordure douce cyan pâle */
   border-radius: 6px;
   transition: border-color 0.3s ease;
-  color: #222b45;
+  color: #003049;
   background-color: #f8faff;
 }
 
 #contact input[type="text"]:focus,
 #contact input[type="email"]:focus,
 #contact textarea:focus {
-  border-color: #3a85ff; /* bleu vif */
+  border-color: #00c0ff;
   outline: none;
   background-color: #ffffff;
 }
 
 #contact button {
-  background-color: #3a85ff;
+  background-color: #00c0ff;
   color: white;
   border: none;
   padding: 14px;
@@ -207,7 +212,7 @@ h2 {
 }
 
 #contact button:hover {
-  background-color: #0a1f44;
+  background-color: #003049;
 }
 
 #formMessage {
@@ -215,28 +220,30 @@ h2 {
   margin: 15px auto 0;
   font-weight: 600;
   text-align: center;
-  color: #0a1f44;
+  color: #003049;
 }
 
-/* Responsive */
-
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .nav-list {
     display: none;
     flex-direction: column;
-    background-color: #0a1f44;
+    background-color: #003049;
     position: absolute;
     right: 0;
     top: 60px;
     width: 200px;
     border-radius: 0 0 0 8px;
   }
+
   .nav-list.open {
     display: flex;
   }
+
   #burger {
     display: block;
   }
+
   .services-container {
     flex-direction: column;
     align-items: center;
