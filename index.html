@@ -91,7 +91,7 @@
     <textarea name="Message" placeholder="Votre message" rows="5" required></textarea>
 
     <!-- Honeypot anti-spam -->
-    <input type="text" name="_gotcha" style="display:none" autocomplete="off" />
+    <input type="text" name="_gotcha" style="display:none" />
 
     <button type="submit">Envoyer</button>
   </form>
@@ -118,7 +118,7 @@
 
     const formData = new FormData(form);
 
-    fetch('https://formspree.io/f/xrblebne', {
+    fetch('https://formspree.io/f/xnnzjnyd', {
       method: 'POST',
       headers: { 'Accept': 'application/json' },
       body: formData
@@ -126,7 +126,7 @@
     .then(response => {
       if (response.ok) {
         formMessage.textContent = "Merci pour votre message, nous vous répondrons rapidement.";
-        formMessage.style.color = "#0a1f44";
+        formMessage.style.color = "#0a1f44"; // bleu entête
         formMessage.style.display = "block";
         form.reset();
       } else {
