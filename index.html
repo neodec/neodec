@@ -69,7 +69,7 @@
         <img src="logos/natixis.png" alt="Natixis">
         <img src="logos/bollore.png" alt="Bolloré Transport & Logistics">
         <img src="logos/bnp-risk.png" alt="BNP Risk">
-        <!-- Duplicate for loop effect -->
+        <!-- Duplicates for looping effect -->
         <img src="logos/business-france.png" alt="Business France">
         <img src="logos/samsung.png" alt="Samsung">
         <img src="logos/sfr.png" alt="SFR">
@@ -85,12 +85,18 @@
 
   <section id="contact">
     <h2>Contactez-nous</h2>
-    <form action="mailto:contact@neodec.fr" method="post" enctype="text/plain">
-      <input type="text" name="Nom" placeholder="Votre nom" required>
-      <input type="email" name="Email" placeholder="Votre email" required>
-      <textarea name="Message" placeholder="Votre message" rows="5" required></textarea>
+    <form action="https://formspree.io/f/xnnzjnyd" method="POST">
+      <!-- Champ anti-spam invisible -->
+      <input type="text" name="_gotcha" style="display:none" />
+      
+      <input type="text" name="prenom" placeholder="Votre prénom" required />
+      <input type="email" name="email" placeholder="Votre adresse e-mail" required />
+      <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
       <button type="submit">Envoyer</button>
     </form>
+    <p id="confirmation" style="display:none; text-align:center; color:green; font-weight:bold; margin-top: 2em;">
+      ✅ Merci ! Votre message a bien été envoyé.
+    </p>
   </section>
 
   <footer>
@@ -98,8 +104,36 @@
   </footer>
 
   <script>
+    // Burger menu
     document.getElementById("burger").addEventListener("click", function () {
       document.querySelector(".nav-list").classList.toggle("open");
+    });
+
+    // Confirmation message
+    const form = document.querySelector("#contact form");
+    const confirmation = document.getElementById("confirmation");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const honeypot = form.querySelector('input[name="_gotcha"]').value;
+      if (honeypot) return;
+
+      const data = new FormData(form);
+      fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          form.reset();
+          confirmation.style.display = "block";
+          confirmation.scrollIntoView({ behavior: "smooth" });
+        } else {
+          alert("Une erreur est survenue. Veuillez réessayer.");
+        }
+      }).catch(() => {
+        alert("Erreur réseau. Veuillez vérifier votre connexion.");
+      });
     });
   </script>
 
