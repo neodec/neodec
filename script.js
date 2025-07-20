@@ -1,40 +1,37 @@
-// script.js
+// Menu burger
+const burger = document.getElementById('burger');
+const navList = document.querySelector('.nav-list');
 
-document.addEventListener('DOMContentLoaded', () => {
-  const burger = document.getElementById('burger');
-  const navList = document.querySelector('.nav-list');
-  const form = document.getElementById('contactForm');
-  const formMessage = document.getElementById('formMessage');
+burger.addEventListener('click', () => {
+  navList.classList.toggle('open');
+});
 
-  // Toggle menu burger
-  burger.addEventListener('click', () => {
-    navList.classList.toggle('open');
-  });
+// Formulaire AJAX avec Formspree
+const form = document.getElementById('contactForm');
+const formMessage = document.getElementById('formMessage');
 
-  // Fermer le menu quand on clique sur un lien (mobile)
-  navList.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      if (navList.classList.contains('open')) {
-        navList.classList.remove('open');
-      }
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
     });
-  });
 
-  // Gestion du formulaire (simple simulation)
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-
-    // Honeypot anti-spam
-    if (form._gotcha.value !== "") {
-      // Spam détecté, on ne fait rien
-      return;
+    if (response.ok) {
+      formMessage.textContent = 'Merci pour votre message ! Nous vous répondrons rapidement.';
+      formMessage.style.color = 'white';
+      form.reset();
+    } else {
+      formMessage.textContent = 'Une erreur est survenue, veuillez réessayer plus tard.';
+      formMessage.style.color = 'red';
     }
-
-    // Simple validation et feedback utilisateur
-    formMessage.style.color = '#0a1f44';
-    formMessage.textContent = "Merci pour votre message, nous vous répondrons rapidement.";
-    formMessage.style.display = 'block';
-
-    form.reset();
-  });
+  } catch (error) {
+    formMessage.textContent = 'Une erreur réseau est survenue, veuillez vérifier votre connexion.';
+    formMessage.style.color = 'red';
+  }
 });
