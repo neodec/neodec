@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NEODEC - Conseil en Intelligence Décidionnelle</title>
+  <title>NEODEC - Conseil en Data & BI</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
 <header>
-
+  <div class="logo">
+    <img src="logos/logo.png" alt="NEODEC" />
+  </div>
   <nav>
     <button id="burger" aria-label="Menu">
       <span></span>
@@ -80,25 +82,7 @@
   <div id="formMessage"></div>
 </section>
 
-<script>
-  // Script menu burger
-  const burger = document.getElementById('burger');
-  const navList = document.querySelector('.nav-list');
-
-  burger.addEventListener('click', () => {
-    navList.classList.toggle('open');
-  });
-
-  // Simple message de confirmation pour le formulaire (exemple)
-  const form = document.getElementById('contactForm');
-  const formMessage = document.getElementById('formMessage');
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    formMessage.textContent = "Merci pour votre message, nous vous répondrons rapidement.";
-    form.reset();
-  });
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
