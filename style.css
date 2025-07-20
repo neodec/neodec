@@ -20,7 +20,17 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  justify-content: space-between; /* logo left, nav right */
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  color: white;
 }
 
 .logo img {
@@ -39,14 +49,24 @@ nav {
 .nav-list {
   list-style: none;
   display: flex;
-  gap: 40px;
+  gap: 0; /* On enlève gap pour utiliser border */
   align-items: center;
+}
+
+.nav-list li {
+  position: relative;
+}
+
+.nav-list li + li {
+  border-left: 1px solid white;
 }
 
 .nav-list li a {
   color: #ffffff;
   text-decoration: none;
   font-weight: 600;
+  padding: 0 20px;
+  display: block;
   transition: color 0.3s ease;
 }
 
@@ -247,17 +267,27 @@ h2 {
     border-radius: 0 0 0 8px;
     padding: 10px 0;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
   }
   .nav-list.open {
     display: flex;
+    opacity: 1;
+    transform: translateY(0);
   }
   .nav-list li {
     margin: 15px 0;
+    border-left: none;
   }
   .nav-list li a {
     padding: 10px 20px;
     display: block;
     font-size: 1.1rem;
+    border-bottom: 1px solid white;
+  }
+  .nav-list li:last-child a {
+    border-bottom: none;
   }
 
   #burger {
