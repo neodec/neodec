@@ -7,8 +7,8 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f5f5f5; /* fond clair */
-  color: #003049; /* bleu profond pour les textes */
+  background: #f5f5f5;
+  color: #003049;
   line-height: 1.6;
 }
 
@@ -17,7 +17,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 30px;
+  padding: 20px 40px;
   background-color: #003049;
   color: white;
   position: sticky;
@@ -87,7 +87,7 @@ nav {
   margin: 0 auto;
 }
 
-/* Sections */
+/* Section */
 section {
   padding: 60px 20px;
   max-width: 1100px;
@@ -129,12 +129,14 @@ h2 {
   color: #00648d;
 }
 
-/* Références */
+/* References */
 .references {
-  background: #linear-gradient(135deg, #003049, #00648d);
-  padding-bottom: 50px;
+  background: linear-gradient(135deg, #003049, #00648d);
+  color: white;
+  padding: 60px 20px 50px;
 }
 
+/* Carousel */
 .carousel-wrapper {
   overflow: hidden;
   margin-top: 30px;
@@ -142,7 +144,7 @@ h2 {
 
 .carousel-track {
   display: flex;
-  width: max-content;
+  width: calc(9 * 200px * 2);
   animation: scroll 30s linear infinite;
   gap: 40px;
   align-items: center;
@@ -161,17 +163,16 @@ h2 {
   cursor: pointer;
 }
 
-/* Carousel animation */
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(calc(-50%));
   }
 }
 
-/* Formulaire */
+/* Contact Form */
 #contact form {
   background: white;
   padding: 30px 25px;
@@ -189,11 +190,11 @@ h2 {
 #contact textarea {
   padding: 12px 15px;
   font-size: 1rem;
-  border: 2px solid #cbeaff;
+  border: 2px solid #00c0ff;
   border-radius: 6px;
   transition: border-color 0.3s ease;
-  color: #003049;
   background-color: #f8faff;
+  color: #003049;
 }
 
 #contact input[type="text"]:focus,
@@ -201,7 +202,7 @@ h2 {
 #contact textarea:focus {
   border-color: #00c0ff;
   outline: none;
-  background-color: #ffffff;
+  background-color: white;
 }
 
 #contact button {
@@ -230,11 +231,10 @@ h2 {
 
 /* Footer */
 footer {
-  background: #003049;
-  color: white;
   text-align: center;
   padding: 20px;
-  font-size: 0.9rem;
+  background: #003049;
+  color: white;
 }
 
 /* Responsive */
@@ -244,23 +244,16 @@ footer {
     flex-direction: column;
     background-color: #003049;
     position: absolute;
-    right: 0;
     top: 60px;
+    right: 0;
     width: 220px;
+    padding: 20px;
+    gap: 20px;
     border-radius: 0 0 0 8px;
-    padding: 10px 0;
   }
 
   .nav-list.open {
     display: flex;
-  }
-
-  .nav-list.open li {
-    padding: 12px 20px;
-  }
-
-  .nav-list.open li:not(:last-child) {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   #burger {
