@@ -11,9 +11,6 @@
     <div class="logo">
       <img src="logos/logo.png" alt="Logo NeoDec" />
     </div>
-    <button id="burger" aria-label="Menu burger">
-      &#9776; &nbsp;&nbsp;&nbsp;
-    </button>
     <nav>
       <ul class="nav-list">
         <li><a href="#hero">Accueil</a></li>
@@ -22,51 +19,54 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+    <button id="burger" aria-label="Menu burger">
+      &#9776; &nbsp;&nbsp;&nbsp;
+    </button>
   </header>
 
-  <section class="hero" id="hero">
-    <h1>Bienvenue chez NeoDec</h1>
-    <p>Votre partenaire de confiance en conseil data, BI et décisionnel</p>
+  <section id="hero" class="hero">
+    <h1>NeoDec - Conseil en Data & BI</h1>
+    <p>Nous aidons les entreprises à exploiter leurs données pour mieux décider.</p>
   </section>
 
   <section id="services">
     <h2>Nos Services</h2>
     <div class="services-container">
       <div class="service">
-        <h3>Conseil stratégique</h3>
-        <p>Accompagnement pour définir vos objectifs data et BI.</p>
+        <h3>Consulting BI</h3>
+        <p>Analyse et optimisation des solutions Business Intelligence.</p>
       </div>
       <div class="service">
-        <h3>Gestion de projet agile</h3>
-        <p>Pilotage efficace et flexible de vos projets BI.</p>
+        <h3>Gestion de projets</h3>
+        <p>Accompagnement agile et pilotage de projets data.</p>
       </div>
       <div class="service">
-        <h3>Intégration technique</h3>
-        <p>Mise en place des solutions décisionnelles sur-mesure.</p>
+        <h3>Formation</h3>
+        <p>Sessions sur mesure pour maîtriser vos outils décisionnels.</p>
       </div>
     </div>
   </section>
 
-  <section id="references">
+  <section id="references" class="references">
     <h2>Ils nous font confiance</h2>
     <div class="carousel-wrapper">
       <div class="carousel-track">
-        <img src="logos/BusinessFrance.png" alt="Business France" />
+        <img src="logos/Business France.png" alt="Business France" />
         <img src="logos/Samsung.png" alt="Samsung" />
         <img src="logos/Free.png" alt="Free" />
         <img src="logos/IEDOM.png" alt="IEDOM" />
         <img src="logos/AMF.png" alt="AMF" />
-        <img src="logos/BNPParibas.png" alt="BNP Paribas" />
-        <img src="logos/BolloreTransportLogistics.png" alt="Bolloré Transport & Logistics" />
+        <img src="logos/BNP PARIBAS.png" alt="BNP PARIBAS" />
+        <img src="logos/Bolloré Transport & Logistics.png" alt="Bolloré Transport & Logistics" />
         <img src="logos/Natixis.png" alt="Natixis" />
-        <img src="logos/BNPRisk.png" alt="BNP RISK" />
+        <img src="logos/BNP RISK.png" alt="BNP RISK" />
       </div>
     </div>
   </section>
 
   <section id="contact">
     <h2>Contactez-nous</h2>
-    <form action="https://formspree.io/f/xrblebne" method="POST" id="contactForm">
+    <form action="https://formspree.io/f/xrblebne" method="POST" id="contact-form">
       <input type="text" name="name" placeholder="Votre nom" required />
       <input type="email" name="email" placeholder="Votre email" required />
       <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
