@@ -3,77 +3,148 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NeoDec - Conseil en Data & BI</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>NEODEC - Conseil en Data & BI</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="logo.png" alt="Logo NeoDec" />
+
+<header>
+  <div class="logo">
+    <img src="logos/logo.png" alt="NEODEC" />
+  </div>
+  <nav>
+    <button id="burger">&#9776;</button>
+    <ul class="nav-list">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#references">Références</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>NEODEC – Conseil en Data & Business Intelligence</h1>
+  <p>Transformez vos données en décisions avec impact.</p>
+</section>
+
+<section id="services">
+  <h2>Nos Services</h2>
+  <div class="services-container">
+    <div class="service">
+      <h3>Analyse de données</h3>
+      <p>Exploitez la puissance de vos données pour orienter vos décisions stratégiques.</p>
     </div>
-    <nav>
-      <button id="burger" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-list">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#references">Références</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h1>NeoDec - Conseil en Data & BI</h1>
-    <p>Accompagnement stratégique, data intelligence et solutions décisionnelles.</p>
-  </section>
-
-  <section id="services">
-    <h2>Nos Services</h2>
-    <div class="services-container">
-      <div class="service">
-        <h3>Consulting Data</h3>
-        <p>Analyse et stratégie sur mesure pour vos données.</p>
-      </div>
-      <div class="service">
-        <h3>Business Intelligence</h3>
-        <p>Tableaux de bord et reporting avancé.</p>
-      </div>
-      <div class="service">
-        <h3>Gestion de projet Agile</h3>
-        <p>Accompagnement flexible et efficace.</p>
-      </div>
+    <div class="service">
+      <h3>Reporting & Visualisation</h3>
+      <p>Des tableaux de bord interactifs et percutants pour une visibilité optimale.</p>
     </div>
-  </section>
-
-  <section id="references" class="references">
-    <h2>Références Clients</h2>
-    <div class="carousel-wrapper">
-      <div class="carousel-track">
-        <img src="client1.png" alt="Client 1" />
-        <img src="client2.png" alt="Client 2" />
-        <img src="client3.png" alt="Client 3" />
-        <img src="client4.png" alt="Client 4" />
-        <img src="client5.png" alt="Client 5" />
-        <img src="client1.png" alt="Client 1" />
-        <img src="client2.png" alt="Client 2" />
-      </div>
+    <div class="service">
+      <h3>Gestion agile & accompagnement</h3>
+      <p>Des projets menés en mode agile pour maximiser la valeur métier rapidement.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="contact">
-    <h2>Contactez-nous</h2>
-    <form id="contactForm" novalidate>
-      <input type="text" name="name" placeholder="Votre nom" required />
-      <input type="email" name="email" placeholder="Votre email" required />
-      <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
-      <button type="submit">Envoyer</button>
-    </form>
-    <div id="formMessage"></div>
-  </section>
+<section id="apropos">
+  <h2>À propos de NEODEC</h2>
+  <p>NEODEC est une société de conseil spécialisée en data, BI et pilotage décisionnel. Nous accompagnons nos clients dans la transformation de leur stratégie grâce à l'intelligence des données.</p>
+</section>
 
-  <script src="script.js"></script>
+<section id="references" class="references">
+  <h2>Ils nous font confiance</h2>
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
+      <img src="logos/business-france.png" alt="Business France" />
+      <img src="logos/samsung.png" alt="Samsung" />
+      <img src="logos/sfr.png" alt="SFR" />
+      <img src="logos/iedom.png" alt="IEDOM" />
+      <img src="logos/amf.png" alt="AMF" />
+      <img src="logos/bnp-paribas.png" alt="BNP Paribas" />
+      <img src="logos/natixis.png" alt="Natixis" />
+      <img src="logos/bollore.png" alt="Bolloré Transport & Logistics" />
+      <img src="logos/bnp-risk.png" alt="BNP Risk" />
+      <!-- Duplication pour boucle -->
+      <img src="logos/business-france.png" alt="Business France" />
+      <img src="logos/samsung.png" alt="Samsung" />
+      <img src="logos/sfr.png" alt="SFR" />
+      <img src="logos/iedom.png" alt="IEDOM" />
+      <img src="logos/amf.png" alt="AMF" />
+      <img src="logos/bnp-paribas.png" alt="BNP Paribas" />
+      <img src="logos/natixis.png" alt="Natixis" />
+      <img src="logos/bollore.png" alt="Bolloré Transport & Logistics" />
+      <img src="logos/bnp-risk.png" alt="BNP Risk" />
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contactez-nous</h2>
+  <form id="contactForm">
+    <input type="text" name="Nom" placeholder="Votre nom" required />
+    <input type="email" name="Email" placeholder="Votre email" required />
+    <textarea name="Message" placeholder="Votre message" rows="5" required></textarea>
+
+    <!-- Honeypot anti-spam -->
+    <input type="text" name="_gotcha" style="display:none" />
+
+    <button type="submit">Envoyer</button>
+  </form>
+  <p id="formMessage" style="display: none;"></p>
+</section>
+
+<footer>
+  <p>&copy; 2025 NEODEC. Tous droits réservés.</p>
+</footer>
+
+<script>
+  // Menu burger toggle
+  const burger = document.getElementById('burger');
+  const navList = document.querySelector('.nav-list');
+
+  burger.addEventListener('click', () => {
+    navList.classList.toggle('open');
+  });
+
+  // Form submission
+  const form = document.getElementById('contactForm');
+  const formMessage = document.getElementById('formMessage');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    if (form._gotcha.value) return; // anti-spam honeypot
+
+    fetch('https://formspree.io/f/xnnzjnyd', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    })
+    .then(response => {
+      if (response.ok) {
+        formMessage.textContent = "Merci pour votre message, nous vous répondrons rapidement.";
+        formMessage.style.color = "#003049"; // bleu profond
+        formMessage.style.display = "block";
+        form.reset();
+      } else {
+        response.json().then(data => {
+          if (data && data.errors) {
+            formMessage.textContent = data.errors.map(e => e.message).join(", ");
+          } else {
+            formMessage.textContent = "Une erreur est survenue lors de l'envoi.";
+          }
+          formMessage.style.color = "#e53e3e"; // rouge erreur
+          formMessage.style.display = "block";
+        });
+      }
+    })
+    .catch(() => {
+      formMessage.textContent = "Une erreur réseau est survenue.";
+      formMessage.style.color = "#e53e3e";
+      formMessage.style.display = "block";
+    });
+  });
+</script>
+
 </body>
 </html>
