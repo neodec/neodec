@@ -1,14 +1,11 @@
-// Menu burger
 const burger = document.getElementById('burger');
 const navList = document.querySelector('.nav-list');
+const form = document.getElementById('contact-form');
+const formMessage = document.getElementById('formMessage');
 
 burger.addEventListener('click', () => {
   navList.classList.toggle('open');
 });
-
-// Formulaire AJAX avec Formspree
-const form = document.getElementById('contactForm');
-const formMessage = document.getElementById('formMessage');
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -18,20 +15,19 @@ form.addEventListener('submit', async (e) => {
   try {
     const response = await fetch(form.action, {
       method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
+      headers: { 'Accept': 'application/json' },
+      body: formData
     });
 
     if (response.ok) {
-      formMessage.textContent = 'Merci pour votre message ! Nous vous répondrons rapidement.';
-      formMessage.style.color = 'white';
+      formMessage.style.color = 'green';
+      formMessage.textContent = 'Merci pour votre message, nous vous répondrons bientôt.';
       form.reset();
     } else {
-      formMessage.textContent = 'Une erreur est survenue, veuillez réessayer plus tard.';
-      formMessage.style.color = 'red';
+      throw new Error('Erreur lors de l’envoi du formulaire.');
     }
   } catch (error) {
-    formMessage.textContent = 'Une erreur réseau est survenue, veuillez vérifier votre connexion.';
     formMessage.style.color = 'red';
+    formMessage.textContent = 'Une erreur est survenue. Veuillez réessayer plus tard.';
   }
 });
