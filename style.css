@@ -13,7 +13,6 @@ body {
 
 header {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   padding: 20px 40px;
   background-color: #0a1f44;
@@ -21,7 +20,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  gap: 20px;
+  justify-content: space-between; /* logo left, nav right */
 }
 
 .logo img {
@@ -30,14 +29,18 @@ header {
 }
 
 nav {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+  margin-left: 40px;
   position: relative;
 }
 
 .nav-list {
   list-style: none;
   display: flex;
-  gap: 30px;
-  margin-left: 20px;
+  gap: 40px;
+  align-items: center;
 }
 
 .nav-list li a {
@@ -52,7 +55,6 @@ nav {
 }
 
 #burger {
-  margin-left: auto;
   display: none;
   font-size: 28px;
   background: none;
@@ -60,8 +62,10 @@ nav {
   color: white;
   cursor: pointer;
   letter-spacing: 0.5em;
+  margin-left: 20px;
 }
 
+/* Hero */
 .hero {
   background: linear-gradient(135deg, #0a1f44, #144a82);
   color: white;
@@ -73,7 +77,6 @@ nav {
   font-size: 2.2rem;
   margin-bottom: 20px;
   font-weight: 700;
-  color: #ffffff;
 }
 
 .hero p {
@@ -83,6 +86,7 @@ nav {
   color: #d0d9ff;
 }
 
+/* Sections */
 section {
   padding: 60px 20px;
   max-width: 1100px;
@@ -96,6 +100,7 @@ h2 {
   color: #0a1f44;
 }
 
+/* Services */
 .services-container {
   display: flex;
   gap: 20px;
@@ -123,17 +128,19 @@ h2 {
   color: #144a82;
 }
 
-.references {
+/* References */
+#references {
   background: linear-gradient(135deg, #0a1f44, #144a82);
-  padding: 60px 20px 50px;
   color: white;
+  padding-bottom: 50px;
 }
 
-.references h2 {
+#references h2 {
   color: white;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
+/* Carousel */
 .carousel-wrapper {
   overflow: hidden;
   margin-top: 30px;
@@ -160,6 +167,7 @@ h2 {
   cursor: pointer;
 }
 
+/* Animation */
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -169,6 +177,7 @@ h2 {
   }
 }
 
+/* Contact Form */
 #contact form {
   background: #ffffff;
   padding: 30px 25px;
@@ -226,23 +235,22 @@ h2 {
 }
 
 /* Responsive */
-
 @media (max-width: 768px) {
   .nav-list {
     display: none;
     flex-direction: column;
     background-color: #0a1f44;
     position: absolute;
-    right: 0;
     top: 60px;
+    right: 0;
     width: 220px;
     border-radius: 0 0 0 8px;
+    padding: 10px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   }
   .nav-list.open {
     display: flex;
   }
-
-  /* Espaces verticaux entre items dans menu burger mobile */
   .nav-list li {
     margin: 15px 0;
   }
@@ -254,6 +262,8 @@ h2 {
 
   #burger {
     display: block;
+    margin-left: 20px;
+    letter-spacing: 0.5em;
   }
 
   .services-container {
