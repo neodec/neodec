@@ -2,19 +2,21 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NEODEC – Conseil en Data & BI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NeoDec - Conseil en Data & BI</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <header>
     <div class="logo">
-      <img src="logos/logo.png" alt="Logo NEODEC" />
+      <img src="logos/logo.png" alt="Logo NeoDec" />
     </div>
+    <button id="burger" aria-label="Menu burger">
+      &#9776; &nbsp;&nbsp;&nbsp;
+    </button>
     <nav>
-      <button id="burger">&#9776;</button>
       <ul class="nav-list">
+        <li><a href="#hero">Accueil</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#references">Références</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -22,59 +24,56 @@
     </nav>
   </header>
 
-  <section class="hero">
-    <h1>Votre partenaire en Data & Business Intelligence</h1>
-    <p>Nous accompagnons les entreprises dans la valorisation de leurs données pour prendre les meilleures décisions.</p>
+  <section class="hero" id="hero">
+    <h1>Bienvenue chez NeoDec</h1>
+    <p>Votre partenaire de confiance en conseil data, BI et décisionnel</p>
   </section>
 
   <section id="services">
     <h2>Nos Services</h2>
     <div class="services-container">
       <div class="service">
-        <h3>Conseil en BI</h3>
-        <p>Nous vous aidons à définir et piloter votre stratégie Data & BI.</p>
+        <h3>Conseil stratégique</h3>
+        <p>Accompagnement pour définir vos objectifs data et BI.</p>
       </div>
       <div class="service">
-        <h3>Gestion de projet</h3>
-        <p>Mise en place de projets agiles et efficaces avec des outils adaptés.</p>
+        <h3>Gestion de projet agile</h3>
+        <p>Pilotage efficace et flexible de vos projets BI.</p>
       </div>
       <div class="service">
-        <h3>Formation</h3>
-        <p>Formations sur mesure pour monter en compétences sur les outils décisionnels.</p>
+        <h3>Intégration technique</h3>
+        <p>Mise en place des solutions décisionnelles sur-mesure.</p>
       </div>
     </div>
   </section>
 
-  <section id="references" class="references">
+  <section id="references">
     <h2>Ils nous font confiance</h2>
     <div class="carousel-wrapper">
       <div class="carousel-track">
-        <img src="logos/bnp.png" alt="BNP Paribas" />
-        <img src="logos/bollore.png" alt="Bolloré" />
-        <img src="logos/societe_generale.png" alt="Société Générale" />
-        <img src="logos/loreal.png" alt="L'Oréal" />
-        <img src="logos/axa.png" alt="AXA" />
-        <img src="logos/decathlon.png" alt="Decathlon" />
-        <img src="logos/edf.png" alt="EDF" />
-        <img src="logos/airfrance.png" alt="Air France" />
-        <img src="logos/orange.png" alt="Orange" />
+        <img src="logos/BusinessFrance.png" alt="Business France" />
+        <img src="logos/Samsung.png" alt="Samsung" />
+        <img src="logos/Free.png" alt="Free" />
+        <img src="logos/IEDOM.png" alt="IEDOM" />
+        <img src="logos/AMF.png" alt="AMF" />
+        <img src="logos/BNPParibas.png" alt="BNP Paribas" />
+        <img src="logos/BolloreTransportLogistics.png" alt="Bolloré Transport & Logistics" />
+        <img src="logos/Natixis.png" alt="Natixis" />
+        <img src="logos/BNPRisk.png" alt="BNP RISK" />
       </div>
     </div>
   </section>
 
   <section id="contact">
     <h2>Contactez-nous</h2>
-    <form>
-      <input type="text" placeholder="Nom" required />
-      <input type="email" placeholder="Email" required />
-      <textarea rows="5" placeholder="Votre message..." required></textarea>
+    <form action="https://formspree.io/f/xrblebne" method="POST" id="contactForm">
+      <input type="text" name="name" placeholder="Votre nom" required />
+      <input type="email" name="email" placeholder="Votre email" required />
+      <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
       <button type="submit">Envoyer</button>
     </form>
+    <div id="formMessage"></div>
   </section>
-
-  <footer>
-    <p>&copy; 2025 NEODEC – Tous droits réservés.</p>
-  </footer>
 
   <script src="script.js"></script>
 </body>
