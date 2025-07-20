@@ -13,7 +13,7 @@
     <img src="logos/logo.png" alt="NEODEC" />
   </div>
   <nav>
-    <button id="burger">&#9776;</button>
+    <button id="burger" aria-label="Menu">&#9776;</button>
     <ul class="nav-list">
       <li><a href="#services">Services</a></li>
       <li><a href="#apropos">À propos</a></li>
@@ -64,7 +64,8 @@
       <img src="logos/natixis.png" alt="Natixis" />
       <img src="logos/bollore.png" alt="Bolloré Transport & Logistics" />
       <img src="logos/bnp-risk.png" alt="BNP Risk" />
-      <!-- Duplication pour boucle -->
+      
+      <!-- Repetition pour boucle continue -->
       <img src="logos/business-france.png" alt="Business France" />
       <img src="logos/samsung.png" alt="Samsung" />
       <img src="logos/sfr.png" alt="SFR" />
@@ -97,54 +98,6 @@
   <p>&copy; 2025 NEODEC. Tous droits réservés.</p>
 </footer>
 
-<script>
-  // Menu burger toggle
-  const burger = document.getElementById('burger');
-  const navList = document.querySelector('.nav-list');
-
-  burger.addEventListener('click', () => {
-    navList.classList.toggle('open');
-  });
-
-  // Form submission
-  const form = document.getElementById('contactForm');
-  const formMessage = document.getElementById('formMessage');
-
-  form.addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    if (form._gotcha.value) return; // anti-spam honeypot
-
-    fetch('https://formspree.io/f/xnnzjnyd', {
-      method: 'POST',
-      headers: { 'Accept': 'application/json' },
-      body: new FormData(form)
-    })
-    .then(response => {
-      if (response.ok) {
-        formMessage.textContent = "Merci pour votre message, nous vous répondrons rapidement.";
-        formMessage.style.color = "#003049"; // bleu profond
-        formMessage.style.display = "block";
-        form.reset();
-      } else {
-        response.json().then(data => {
-          if (data && data.errors) {
-            formMessage.textContent = data.errors.map(e => e.message).join(", ");
-          } else {
-            formMessage.textContent = "Une erreur est survenue lors de l'envoi.";
-          }
-          formMessage.style.color = "#e53e3e"; // rouge erreur
-          formMessage.style.display = "block";
-        });
-      }
-    })
-    .catch(() => {
-      formMessage.textContent = "Une erreur réseau est survenue.";
-      formMessage.style.color = "#e53e3e";
-      formMessage.style.display = "block";
-    });
-  });
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
