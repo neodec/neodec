@@ -9,64 +9,65 @@
 <body>
   <header>
     <div class="logo">
-      <img src="logos/logo.png" alt="Logo NeoDec" />
+      <img src="logos/logo-neodec.png" alt="NeoDec Logo" />
     </div>
+
     <nav>
       <ul class="nav-list">
-        <li><a href="#hero">Accueil</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#references">Références</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+
+      <button id="burger" aria-label="Menu">
+        ☰
+      </button>
     </nav>
-    <button id="burger" aria-label="Menu burger">
-      &#9776; &nbsp;&nbsp;&nbsp;
-    </button>
   </header>
 
-  <section id="hero" class="hero">
+  <section class="hero">
     <h1>NeoDec - Conseil en Data & BI</h1>
-    <p>Nous aidons les entreprises à exploiter leurs données pour mieux décider.</p>
+    <p>Accompagnement stratégique et technique pour vos projets data, business intelligence et décisionnels.</p>
   </section>
 
   <section id="services">
     <h2>Nos Services</h2>
     <div class="services-container">
       <div class="service">
-        <h3>Consulting BI</h3>
-        <p>Analyse et optimisation des solutions Business Intelligence.</p>
+        <h3>Conseil & Stratégie</h3>
+        <p>Analyse, définition de roadmap et accompagnement dans la transformation digitale.</p>
       </div>
       <div class="service">
-        <h3>Gestion de projets</h3>
-        <p>Accompagnement agile et pilotage de projets data.</p>
+        <h3>Développement & Intégration</h3>
+        <p>Solutions personnalisées BI, intégration d’outils et automatisation des processus.</p>
       </div>
       <div class="service">
-        <h3>Formation</h3>
-        <p>Sessions sur mesure pour maîtriser vos outils décisionnels.</p>
+        <h3>Formation & Support</h3>
+        <p>Sessions de formation sur mesure et support continu pour vos équipes.</p>
       </div>
     </div>
   </section>
 
-  <section id="references" class="references">
+  <section id="references">
     <h2>Ils nous font confiance</h2>
     <div class="carousel-wrapper">
       <div class="carousel-track">
-        <img src="logos/Business France.png" alt="Business France" />
-        <img src="logos/Samsung.png" alt="Samsung" />
-        <img src="logos/Free.png" alt="Free" />
-        <img src="logos/IEDOM.png" alt="IEDOM" />
-        <img src="logos/AMF.png" alt="AMF" />
-        <img src="logos/BNP PARIBAS.png" alt="BNP PARIBAS" />
-        <img src="logos/Bolloré Transport & Logistics.png" alt="Bolloré Transport & Logistics" />
-        <img src="logos/Natixis.png" alt="Natixis" />
-        <img src="logos/BNP RISK.png" alt="BNP RISK" />
+        <img src="logos/bnp.png" alt="BNP Paribas" />
+        <img src="logos/bollore.png" alt="Bolloré Transport & Logistics" />
+        <img src="logos/business-france.png" alt="Business France" />
+        <img src="logos/iedom.png" alt="IEDOM" />
+        <img src="logos/amf.png" alt="AMF" />
+        <img src="logos/samsung.png" alt="Samsung" />
+        <img src="logos/free.png" alt="Free" />
+        <img src="logos/natixis.png" alt="Natixis" />
+        <img src="logos/bnp-risk.png" alt="BNP Risk" />
       </div>
     </div>
   </section>
 
   <section id="contact">
     <h2>Contactez-nous</h2>
-    <form action="https://formspree.io/f/xrblebne" method="POST" id="contact-form">
+    <form action="https://formspree.io/f/xrblebne" method="POST">
       <input type="text" name="name" placeholder="Votre nom" required />
       <input type="email" name="email" placeholder="Votre email" required />
       <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
