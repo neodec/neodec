@@ -4,12 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NEODEC - Conseil en Intelligence Décisionnelle</title>
+  <meta name="description" content="NEODEC accompagne les entreprises dans leurs projets data et business intelligence : conseil, développement de tableaux de bord, intégration, formation et support." />
+  <link rel="icon" href="logos/logo-neodec.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style-extra.css" />
 </head>
 <body>
 <header>
   <div class="logo">
-    <img src="logos/logo-neodec.PNG" alt="Logo NEODEC" />
+    <img src="logos/logo-neodec.svg" alt="Logo NEODEC" width="80" height="80" />
     <span class="logo-text">NEODEC</span>
   </div>
 
@@ -27,6 +30,7 @@
 <section id="accueil" class="hero">
   <h1>NEODEC - Conseil en Intelligence Décisionnelle</h1>
   <p>Accompagnement stratégique et technique pour vos projets data et business intelligence.</p>
+  <a class="cta" href="#contact">Nous contacter</a>
 </section>
 
   <section id="services">
@@ -35,14 +39,29 @@
       <div class="service">
         <h3>Conseil & Stratégie</h3>
         <p>Analyse, définition de roadmap et accompagnement dans la transformation digitale.</p>
+        <ul>
+          <li>Audit de votre existant data et BI</li>
+          <li>Assistance à maîtrise d’ouvrage (MOA) : cadrage des besoins et des indicateurs clés</li>
+          <li>Gestion de projet et choix des outils</li>
+        </ul>
       </div>
       <div class="service">
         <h3>Développement & Intégration</h3>
         <p>Solutions personnalisées BI, intégration d’outils et automatisation des processus.</p>
+        <ul>
+          <li>Tableaux de bord sur IBM Cognos, Tableau et Power BI</li>
+          <li>Préparation et automatisation des données avec Dataiku</li>
+          <li>Connexion et intégration de vos sources de données</li>
+        </ul>
       </div>
       <div class="service">
         <h3>Formation & Support</h3>
         <p>Sessions de formation sur mesure et support continu pour vos équipes.</p>
+        <ul>
+          <li>Formations sur mesure pour vos équipes</li>
+          <li>Prise en main de Cognos, Tableau, Power BI et Dataiku</li>
+          <li>Support et maintenance dans la durée</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -76,15 +95,26 @@
 
   <section id="contact">
     <h2>Contactez-nous</h2>
+    <div class="contact-info">
+      <p>Email : <a href="mailto:contact.neodec@gmail.com">contact.neodec@gmail.com</a></p>
+      <p>Téléphone : <a href="tel:+33632909085">06 32 90 90 85</a></p>
+    </div>
     <form action="https://formspree.io/f/manbdjwd" method="POST">
       <input type="text" name="name" placeholder="Votre nom" required />
       <input type="email" name="email" placeholder="Votre email" required />
       <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
+      <p class="form-note">Vos données servent uniquement à répondre à votre demande. Voir la <a href="mentions-legales.html#confidentialite">politique de confidentialité</a>.</p>
       <button type="submit">Envoyer</button>
     </form>
     <div id="formMessage"></div>
   </section>
 
+  <footer>
+    <p>© 2026 NEODEC - Conseil en Intelligence Décisionnelle</p>
+    <p><a href="mentions-legales.html">Mentions légales</a> <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a></p>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
+
