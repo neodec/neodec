@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="132" height="132" viewBox="0 0 132 132" fill="none" role="img" aria-label="Logo NEODEC">
+  <title>NEODEC</title>
+  <circle cx="66" cy="66" r="62" stroke="#C9A96A" stroke-width="1.5"/>
+  <circle cx="66" cy="66" r="55" stroke="#C9A96A" stroke-width="0.6" opacity="0.55"/>
+  <path d="M39 88 V44 L63 88 V44" stroke="#C9A96A" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"/>
+  <path d="M63 44 H71 A22 22 0 0 1 71 88 H63" stroke="#C9A96A" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"/>
+  <circle cx="63" cy="44" r="4.5" fill="#C9A96A"/>
+</svg>
